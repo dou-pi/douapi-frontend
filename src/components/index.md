@@ -233,7 +233,7 @@ RightContent 是以上几个组件的组合，同时新增了 plugins 的 `Selec
     options={[
       { label: <a href="https://umijs.org/zh/guide/umi-ui.html">umi ui</a>, value: 'umi ui' },
       {
-        label: <a href="next.ant.design">豆皮接口</a>,
+        label: <a href="https://github.com/dou-pi/douapi-frontend">豆皮接口</a>,
         value: '豆皮接口',
       },
       {

@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         {
           key: '豆皮接口',
           title: '豆皮接口',
-          href: 'https://pro.ant.design',
+          href: 'https://github.com/dou-pi/douapi-frontend',
           blankTarget: true,
         },
         {
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
         {
           key: '豆皮接口',
           title: '豆皮接口',
-          href: 'https://ant.design',
+          href: 'https://github.com/dou-pi/douapi-frontend',
           blankTarget: true,
         },
       ]}

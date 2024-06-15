@@ -28,7 +28,7 @@ const GlobalHeaderRight: React.FC = () => {
             value: 'umi ui',
           },
           {
-            label: <a href="next.ant.design">豆皮接口</a>,
+            label: <a href="https://github.com/dou-pi/douapi-frontend">豆皮接口</a>,
             value: '豆皮接口',
           },
           {
