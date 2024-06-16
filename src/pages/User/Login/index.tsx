@@ -2,7 +2,7 @@ import Footer from '@/components/Footer';
 import {LockOutlined, UserOutlined,} from '@ant-design/icons';
 import {LoginForm, ProFormCheckbox, ProFormText,} from '@ant-design/pro-components';
 import {history, useModel} from '@umijs/max';
-import {Alert, message, Tabs} from 'antd';
+import {Alert, message, Tabs,Space,Divider} from 'antd';
 import React, {useState} from 'react';
 import styles from './index.less';
 import {userLoginUsingPOST} from '@/services/douapi-backend/userController';
@@ -61,12 +61,7 @@ const Login: React.FC = () => {
           initialValues={{
             autoLogin: true,
           }}
-          /*actions={[
-            '其他登录方式 :',
-            <AlipayCircleOutlined key="AlipayCircleOutlined" className={styles.icon} />,
-            <TaobaoCircleOutlined key="TaobaoCircleOutlined" className={styles.icon} />,
-            <WeiboCircleOutlined key="WeiboCircleOutlined" className={styles.icon} />,
-          ]}*/
+
           onFinish={async (values) => {
             await handleSubmit(values as API.UserLoginRequest);
           }}
@@ -75,6 +70,7 @@ const Login: React.FC = () => {
             activeKey={type}
             onChange={setType}
             centered
+
             items={[
               {
                 key: 'account',
@@ -120,84 +116,48 @@ const Login: React.FC = () => {
             </>
           )}
 
-              {/*{status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
-          {type === 'mobile' && (
-            <>
-              <ProFormText
-                fieldProps={{
-                  size: 'large',
-                  prefix: <MobileOutlined className={styles.prefixIcon} />,
-                }}
-                name="mobile"
-                placeholder={'请输入手机号！'}
-                rules={[
-                  {
-                    required: true,
-                    message: '手机号是必填项！',
-                  },
-                  {
-                    pattern: /^1\d{10}$/,
-                    message: '不合法的手机号！',
-                  },
-                ]}
-              />
-              <ProFormCaptcha
-                fieldProps={{
-                  size: 'large',
-                  prefix: <LockOutlined className={styles.prefixIcon} />,
-                }}
-                captchaProps={{
-                  size: 'large',
-                }}
-                placeholder={'请输入验证码！'}
-                captchaTextRender={(timing, count) => {
-                  if (timing) {
-                    return `${count} ${'秒后重新获取'}`;
-                  }
-                  return '获取验证码';
-                }}
-                name="captcha"
-                rules={[
-                  {
-                    required: true,
-                    message: '验证码是必填项！',
-                  },
-                ]}
-                onGetCaptcha={async (phone) => {
-                  const result = await getFakeCaptcha({
-                    phone,
-                  });
-                  if (result === false) {
-                    return;
-                  }
-                  message.success('获取验证码成功！验证码为：1234');
-                }}
-              />
-            </>
-          )}*/}
-              <div
+
+          <div
+            style={{
+              marginBottom: 24,
+            }}
+          >
+           {/* <ProFormCheckbox noStyle name="autoLogin">
+              自动登录
+            </ProFormCheckbox>
+
+            <Link to="/user/register">新用户注册</Link>
+            <a
+              style={{
+                float: 'right',
+              }}
+              target="_blank"
+              rel="noreferrer"
+            >
+
+                忘记密码请联系管理员
+              </a>*/}
+            <Space split={<Divider type="vertical" />}>
+              <ProFormCheckbox noStyle name="autoLogin">
+                自动登录
+              </ProFormCheckbox>
+              <Link to="/user/register">新用户注册</Link>
+              <a
                 style={{
-                  marginBottom: 24,
+                  float: 'right',
                 }}
+
+                target="_blank"
+                rel="noreferrer"
               >
-                <ProFormCheckbox noStyle name="autoLogin">
-                  自动登录
-                </ProFormCheckbox>
-
-                <Link to="/user/register">新用户注册</Link>
-
-                <a
-                  style={{
-                    float: 'right',
-                  }}
-                >
-                  忘记密码请联系管理员 ?
-                </a>
-              </div>
-            </LoginForm>
-            </div>
-            <Footer/>
-            </div>
-            );
-          };
-          export default Login;
+                忘记密码
+              </a>
+            </Space>
+          </div>
+        </LoginForm>
+      </div>
+      <Footer/>
+    </div>
+);
+};
+export default Login;
